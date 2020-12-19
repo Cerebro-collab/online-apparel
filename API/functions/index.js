@@ -19,12 +19,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-//const userRoutes = require('./api/routes/users');
-/*const productRoutes = require('./api/routes/products');
-const requirementRoutes = require('./api/routes/requirements');
-const invoiceRoutes = require('./api/routes/invoice');
-const orderRoutes = require('./api/routes/order');
-*/
+const userRoutes = require('./api/routes/users');
+const productRoutes = require('./api/routes/products');
+//const requirementRoutes = require('./api/routes/requirements');
+//const invoiceRoutes = require('./api/routes/invoice');
+//const orderRoutes = require('./api/routes/order');
+
 
 app.use((req, res, next) => {
   req.db = db;
@@ -32,12 +32,12 @@ app.use((req, res, next) => {
   next();
 });
 
-//app.use('/users',userRoutes);
-/*app.use('/products',productRoutes);
-app.use('/req',requirementRoutes);
-app.use('/invoice',invoiceRoutes);
-app.use('/orders',orderRoutes);
-*/
+app.use('/users',userRoutes);
+app.use('/products',productRoutes);
+//app.use('/req',requirementRoutes);
+//app.use('/invoice',invoiceRoutes);
+//app.use('/orders',orderRoutes);
+
 
 app.get('/hello',(req,res) => {
    console.log('hi....');
